@@ -24,10 +24,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject TargetPlayer;
     [SerializeField] private Vector3 OffsetGround;
     [SerializeField] private Vector3 SpawnPositionBehindPlayer;
-    List<GameObject> coins = new List<GameObject>();
-    List<GameObject> powerUp = new List<GameObject>();
-    Vector3 PositionPlayer;
-
+    private List<GameObject> coins = new List<GameObject>();
+    private List<GameObject> powerUp = new List<GameObject>();
+    private Vector3 PositionPlayer;
+    private Animator animPlayer;
     [SerializeField] private float zForcePlayer;
     [SerializeField] private float jumpForcePlayer;
     [SerializeField] private GameObject wall;
@@ -40,12 +40,12 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
-        TutorialStep = new string[] { "Welcome this is the tutorial", "Press W,A,S,D key for MOVEMENT and press down arrow key to CRUNCH", "The bar indicate the remaining path to finish the level.","Press SPACE for JUMP", 
-                                    "Collect the Marscoins to buy the skins in the shop!","The collected Marscoins will be shown on the top left","Pick the Marscoin to continue",
-                                    "There are three types of PowerUps","When the PowerUp is it picked will be visible on the top right",
-                                    "The *MAGNET* will attract coins close to you", "Pick the MAGNET to continue.",
-                                    "The *RESIZESCALE* will make you smaller and faster!","Pick the RESIZESCALE to continue.","And the *UPWEIGHT* will make you heavy","Pick the UPWEIGHT.",
-                                    "The time remaining to complete the level is shown on the left","Finish the level before time runs out, otherwise GAME OVER.","Climb the leaderboard by getting the best score","An advice.. don't fall from the platform","Good Luck!" };
+        TutorialStep = new string[] { "Welcome this is the tutorial.", "Press W,A,S,D key for MOVEMENT and press down arrow key to CRUNCH.", "The bar indicate the remaining path to finish the level.","Press SPACE for JUMP.", 
+                                    "Collect the Marscoins to buy the skins in the shop!.","The collected Marscoins will be shown on the top left.","Pick the Marscoin to continue.",
+                                    "There are three types of PowerUps.","When the PowerUp is it picked will be visible on the top right.",
+                                    "The *MAGNET* will attract coins close to you.", "Pick the MAGNET to continue.",
+                                    "The *RESIZESCALE* will make you smaller and faster!.","Pick the RESIZESCALE to continue.","And the *UPWEIGHT* will make you heavy.","Pick the UPWEIGHT.",
+                                    "The time remaining to complete the level is shown on the left.","Finish the level before time runs out, otherwise GAME OVER.","Climb the leaderboard by getting the best score","An advice.. don't fall from the platform and wath out of some obstacles.","Good Luck!" };
 
 
         DialogProgressBar = new string[] { "What's up bro?", "I'll keep you company in the game!!",
@@ -75,7 +75,6 @@ public class Tutorial : MonoBehaviour
 
 
         PowerUps = GameObject.Find("Canvas/PowerUps");
-        PowerUps.SetActive(false);
 
 
         TimeToFinish = GameObject.Find("Canvas/TimeToFinish");
@@ -85,7 +84,7 @@ public class Tutorial : MonoBehaviour
         Score.SetActive(false);
 
         PositionPlayer = TargetPlayer.transform.position;
-
+        animPlayer = TargetPlayer.GetComponent<PlayerMovement>().Anim;
         zForcePlayer = TargetPlayer.GetComponent<PlayerMovement>().ZForce;
         jumpForcePlayer = TargetPlayer.GetComponent<PlayerMovement>().JumpForce;
 
@@ -105,7 +104,7 @@ public class Tutorial : MonoBehaviour
         end = GameObject.Find("End");
 
         
-        end.transform.Spawn(new Vector3(PositionPlayer.x, PositionPlayer.y, PositionPlayer.z + distanceToEnd));
+        end.transform.Spawn(new Vector3(PositionPlayer.x, PositionPlayer.y + 4, PositionPlayer.z + distanceToEnd));
 
         StartCoroutine(IntroTutorial());
     }
@@ -195,7 +194,6 @@ public class Tutorial : MonoBehaviour
 
         // When powerup..
         TutorialStepText.text = TutorialStep[8];
-        PowerUps.SetActive(true);
         yield return new WaitForSeconds(5f);
 
         // Magnet
@@ -283,13 +281,14 @@ public class Tutorial : MonoBehaviour
         // Good luck
         TutorialStepText.text = TutorialStep[19];
         yield return new WaitForSeconds(5f);
+        TutorialStepText.text = "";
 
     }
 
 
     bool verifyJumpPlayer()
     {
-        if (PositionPlayer.y != TargetPlayer.transform.position.y)
+        if (animPlayer.GetCurrentAnimatorStateInfo(0).IsName("Player_Jump"))
         {
           return  true;
         }
@@ -309,7 +308,7 @@ public class Tutorial : MonoBehaviour
 
     bool verifyCrounchedPlayer()
     {
-        if(PositionPlayer.y > TargetPlayer.transform.position.y)
+        if (animPlayer.GetCurrentAnimatorStateInfo(0).IsName("Player_Crounched"))
         {
             return true;
         }
@@ -321,7 +320,7 @@ public class Tutorial : MonoBehaviour
     {
         if (tutorialIsActive)
         {
-            end.transform.position = TargetPlayer.transform.position + new Vector3(0, 0, distanceToEnd);
+            end.transform.position =  new Vector3(0, 4, TargetPlayer.transform.position.z + distanceToEnd);
         }
     }
 

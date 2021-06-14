@@ -74,6 +74,10 @@ public class ScorePlayer : MonoBehaviour
             {
                 timer = 0;
                 timeIsRunning = false;
+
+                if(SceneManager.GetActiveScene().buildIndex > 1) { 
+                    GameObject.Find("GameManager").GetComponent<GameManager>().EndGame();
+                }
             }
 
             DisplayTime();

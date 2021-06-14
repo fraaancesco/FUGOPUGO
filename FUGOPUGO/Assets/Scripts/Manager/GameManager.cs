@@ -90,8 +90,12 @@ public class GameManager : Singleton<GameManager>
             double points = canvas.GetComponent<ScorePlayer>().CalculateScore();
             SaveGame.SaveScoreLevel(points);
         }
-        if (SceneManager.GetActiveScene().buildIndex == 1) //implentare UI TUTORIAL
-            LoadNextLevel();
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            GameObject.Find("IntroLevel").transform.GetChild(1).gameObject.SetActive(true);
+        }
+
         SaveGame.SaveLevel(sceneIndex);
         double finalScore = 0;
         if (sceneIndex == 4)
@@ -115,7 +119,6 @@ public class GameManager : Singleton<GameManager>
             stopGame = true;
             gameHasEnded = true;
             deathUI.SetActive(true);
-            // Set false UI player
             SetFalseUserUI();
         }
     }
