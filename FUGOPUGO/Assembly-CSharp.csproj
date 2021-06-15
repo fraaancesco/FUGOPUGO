@@ -87,8 +87,8 @@
     <Compile Include="Assets\Scripts\Player\PlayerCollision.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerContainer.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\Player\SkinBluePrint.cs" />
     <Compile Include="Assets\Scripts\Player\SkinSelector.cs" />
+    <Compile Include="Assets\Scripts\Player\skinBlueprint.cs" />
     <Compile Include="Assets\Scripts\PowerUp\Magnet\Magnet.cs" />
     <Compile Include="Assets\Scripts\PowerUp\PowerUp.cs" />
     <Compile Include="Assets\Scripts\PowerUp\PowerUpCoroutine.cs" />
