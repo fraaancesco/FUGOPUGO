@@ -41,7 +41,7 @@ public static class SaveGame
         foreach (PlayerData data in SaveData.playerContainer.player)
         {
             if (data.namePlayer == GameManager.playerinfo.namePlayer)
-                return GameManager.playerinfo.IndexSkin;
+                return GameManager.playerinfo.indexSkin;
         }
         return 0;
     }
@@ -51,7 +51,7 @@ public static class SaveGame
         foreach (PlayerData data in SaveData.playerContainer.player)
         {
             if(data.namePlayer == GameManager.playerinfo.namePlayer)
-                data.IndexSkin = skinSelected;
+                data.indexSkin = skinSelected;
         }
         SaveData.Save(targetFilePathSetting, SaveData.playerContainer);
     }

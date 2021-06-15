@@ -7,10 +7,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private bool isPaused;
     [SerializeField] private GameObject introLevel;
-    
+    [SerializeField] private GameObject GameManager;
 
     private void Start()
     {
+        GameManager = GameObject.Find("GameManager");
+        pauseMenuUI = GameObject.Find("Canvas/PauseMenu").gameObject;
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             introLevel = GameObject.Find("IntroLevel");
@@ -20,13 +22,20 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.GetComponent<GameManager>().gameHasEnded) 
+        {
             isPaused = !isPaused;
 
-        if (isPaused)
+        }
+
+        if (isPaused) 
+        {
             ActivateMenu();
-        else 
+        }
+        else
+        {
             DeactivateMenu();
+        }
     }
     
 
@@ -37,7 +46,7 @@ public class PauseMenu : MonoBehaviour
             introLevel.SetActive(false);
         }
         Time.timeScale = 0;
-        AudioListener.pause = true;
+       // AudioListener.pause = true;
         pauseMenuUI.SetActive(true);
     }
 
@@ -48,7 +57,7 @@ public class PauseMenu : MonoBehaviour
             introLevel.SetActive(true);
         }
         Time.timeScale = 1;
-        AudioListener.pause = false;
+     //   AudioListener.pause = false;
         pauseMenuUI.SetActive(false);
         isPaused = false;
         

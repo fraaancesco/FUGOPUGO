@@ -1,17 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.IO;
-using System;
+﻿using System;
 
-/*
-[Serializable]
-public  class Player : MonoBehaviour
-{
-    public PlayerData player = new PlayerData();
-    
-}
-*/
 [Serializable]
 public class PlayerData
 {
@@ -19,7 +7,7 @@ public class PlayerData
     public int wallet;
     public int levelPassed;
     public double[] score = new double[3];
-    public int IndexSkin; // tiene conto della skin selezionata 
+    public int indexSkin;
     public bool[] skinUnlocked = new bool[4];
 
 }

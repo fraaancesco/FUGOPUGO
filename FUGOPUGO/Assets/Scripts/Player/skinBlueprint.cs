@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class skinBlueprint
+﻿[System.Serializable]
+public class SkinBluePrint
 {
     public string name;
     public int index;

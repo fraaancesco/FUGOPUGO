@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] GameObject[] cubeSkins;
     private int currentSkinIndex;
-    public skinBlueprint[] skins;
+    public SkinBluePrint[] skins;
     public Button buybtn;
     [SerializeField] private GameObject Marscoin;
     [SerializeField] private string namePlayer;
@@ -43,7 +43,7 @@ public class ShopManager : MonoBehaviour
         
         cubeSkins[currentSkinIndex].SetActive(true);
         UpdateUI();
-        skinBlueprint c =  skins[currentSkinIndex];
+        SkinBluePrint c =  skins[currentSkinIndex];
         Debug.Log(currentSkinIndex);
         if (!SaveGame.IsUnlocked(currentSkinIndex,namePlayer))
             return;
@@ -60,7 +60,7 @@ public class ShopManager : MonoBehaviour
         
         cubeSkins[currentSkinIndex].SetActive(true);
         UpdateUI();
-        skinBlueprint c = skins[currentSkinIndex];
+        SkinBluePrint c = skins[currentSkinIndex];
         Debug.Log(currentSkinIndex);
         if (!SaveGame.IsUnlocked(currentSkinIndex, namePlayer))
             return;
@@ -69,7 +69,7 @@ public class ShopManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        skinBlueprint c = skins[currentSkinIndex];
+        SkinBluePrint c = skins[currentSkinIndex];
         if (SaveGame.IsUnlocked(currentSkinIndex, namePlayer))
         {
             buybtn.gameObject.SetActive(false);
@@ -90,7 +90,7 @@ public class ShopManager : MonoBehaviour
   
     public void unlockSkin()
     {
-        skinBlueprint c = skins[currentSkinIndex];
+        SkinBluePrint c = skins[currentSkinIndex];
         SaveGame.setSkinSelected(currentSkinIndex);
         SaveGame.UnlockSkin(currentSkinIndex,namePlayer);
         SaveGame.UpdateCoinAfterBuy("Marscoin", c.price);

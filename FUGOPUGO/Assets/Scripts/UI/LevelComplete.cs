@@ -35,12 +35,12 @@ public class LevelComplete : MonoBehaviour
         int coinsCollectedOfLvl= GameObject.Find("CoinManager").GetComponent<CoinManager>().GetCoinsOfLevel();
         coinsCollected.GetComponent<Text>().text = coinsCollectedOfLvl.ToString();
 
-        //set old score.
+        // Set old score.
         double oldScorePlayer = SaveGame.GetScoreLevel(SceneManager.GetActiveScene().buildIndex - 2);
        
         oldScore.GetComponent<Text>().text = oldScorePlayer.ToString();
 
-        // set final score
+        // Set final score.
         float finalScorePlayer = (float)canvas.GetComponent<ScorePlayer>().CalculateScore();
         finalScore.GetComponent<Text>().text = Mathf.Round(finalScorePlayer).ToString();
    }

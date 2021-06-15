@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject completeLevelUI;
     [SerializeField] GameObject canvas;
     [SerializeField] GameObject deathUI;
-    [SerializeField] GameObject coinManager;
+    [SerializeField] GameObject CoinManager;
     [SerializeField] GameObject marscoin;
     [SerializeField] GameObject score;
     [SerializeField] GameObject progressLevelBar;
@@ -25,14 +25,14 @@ public class GameManager : Singleton<GameManager>
     private string nameToSearch;
     public string filePathSetting = "Assets/Json/PlayerList.json";
 
-    [SerializeField] InputField input;
+    [SerializeField] InputField input; // Nickname 
     [SerializeField] GameObject level01, level02, level03;
     Button level01btn, level02btn, level03btn;
 
     public ScoreManager scoreManager;
     private void Awake()
     {
-        coinManager = GameObject.Find("CoinManager");
+        CoinManager = GameObject.Find("CoinManager");
         stopGame = false;
         if(SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex < 5)
         {
@@ -51,7 +51,10 @@ public class GameManager : Singleton<GameManager>
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         levelPassed = SaveGame.GetLevelPassed();
-        coinManager.GetComponent<CoinManager>().ResetCoins();
+
+        if(SceneManager.GetActiveScene().buildIndex >= 2) { 
+            CoinManager.GetComponent<CoinManager>().ResetCoins();
+        }
     }
 
 
@@ -82,23 +85,30 @@ public class GameManager : Singleton<GameManager>
     {
         SetFalseUserUI();
         stopGame = true;
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        
+     
+        if (SceneManager.GetActiveScene().buildIndex >= 1)
         {
-            completeLevelUI.SetActive(true);
-            canvas.GetComponent<LevelComplete>().SetLevelComplete();
-         
-            double points = canvas.GetComponent<ScorePlayer>().CalculateScore();
-            SaveGame.SaveScoreLevel(points);
-        }
-
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            GameObject.Find("IntroLevel").transform.GetChild(1).gameObject.SetActive(true);
+            // Tutorial
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                GameObject.Find("IntroLevel").transform.GetChild(1).gameObject.SetActive(true);
+            }
+            else 
+            { 
+                completeLevelUI.SetActive(true);
+                canvas.GetComponent<LevelComplete>().SetLevelComplete();
+                double points = canvas.GetComponent<ScorePlayer>().CalculateScore();
+                SaveGame.SaveScoreLevel(points);
+            }
+      
         }
 
         SaveGame.SaveLevel(sceneIndex);
         double finalScore = 0;
-        if (sceneIndex == 4)
+
+        // Rank the player when finish all levels.
+        if (levelPassed == 3)
         {
             for (int i = 0; i < 3; i++) { 
                 finalScore += SaveGame.GetScoreLevel(i);
@@ -107,11 +117,12 @@ public class GameManager : Singleton<GameManager>
             scoreManager.SaveScore();
         }
 
-        coinManager.GetComponent<CoinManager>().SaveCoins();
-        coinManager.GetComponent<CoinManager>().ResetCoins();
+        CoinManager.GetComponent<CoinManager>().SaveCoins();
+        CoinManager.GetComponent<CoinManager>().ResetCoins();
         
 
     }
+
     public void EndGame()
     {
         if (gameHasEnded == false) 
@@ -130,8 +141,13 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadNextLevel()
     {
-        coinManager.GetComponent<CoinManager>().ResetCoins();
+        CoinManager.GetComponent<CoinManager>().ResetCoins();
         AsyncOperation op = SceneManager.LoadSceneAsync(sceneIndex + 1);
+    }
+
+    public void LevelToLoad(int level)
+    {
+        AsyncOperation op = SceneManager.LoadSceneAsync(level);
     }
 
     public void RestartGame()
@@ -159,7 +175,7 @@ public class GameManager : Singleton<GameManager>
             for (int i = 0; i < 3; i++)
                 playerinfo.score[i] = 0;
             playerinfo.levelPassed = 0;
-            playerinfo.IndexSkin = 0;
+            playerinfo.indexSkin = 0;
             playerinfo.skinUnlocked[0] = true;
             for (int i = 1; i < 4; i++)
                 playerinfo.skinUnlocked[i] = false;
@@ -179,13 +195,12 @@ public class GameManager : Singleton<GameManager>
         powerup.SetActive(false);
     }
 
-
-    public void LoadLevelAvailable()
+    public void LoadLevelAvailableUI()
     {
         level01btn = level01.GetComponent<Button>();
         level02btn = level02.GetComponent<Button>();
         level03btn = level03.GetComponent<Button>();
-        ResetLevel();
+        ResetLevelUI();
         levelPassed = playerinfo.levelPassed;
         switch (levelPassed)
         {
@@ -210,12 +225,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void LevelToLoad(int level)
-    {
-        AsyncOperation op = SceneManager.LoadSceneAsync(level);
-    }
-
-    public void ResetLevel()
+    public void ResetLevelUI()
     {
         level03.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Text/Level3-check") as Sprite;
         level02.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Text/Level2-check") as Sprite;

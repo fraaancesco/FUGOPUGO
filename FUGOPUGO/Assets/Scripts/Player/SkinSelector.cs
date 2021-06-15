@@ -1,23 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 public class SkinSelector : MonoBehaviour
 {
-    [SerializeField] GameObject[] cubes;
+    [SerializeField] private GameObject[] cubes;
     private int currentSkinIndex;
-    [SerializeField] skinBlueprint[] skins;
+    [SerializeField] private SkinBluePrint[] skins;
     
     private void Start()
     {
         currentSkinIndex = SaveGame.getIndexSkin();
-        
-        //setto tutti i cubi false
+
         foreach (GameObject cube in cubes)
         {
             cube.SetActive(false);
-            Debug.Log(currentSkinIndex + "In gioco");
         }
-        //attivo il cubo selezionato
+        
         cubes[currentSkinIndex].SetActive(true);
     }
 }

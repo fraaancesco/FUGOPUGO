@@ -9,7 +9,11 @@
                 0.0,
                 0.0
             ],
+<<<<<<< Updated upstream
             "IndexSkin": 0,
+=======
+            "indexSkin": 0,
+>>>>>>> Stashed changes
             "skinUnlocked": [
                 true,
                 false,

@@ -5673,7 +5673,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1898200222}
-        m_MethodName: LoadLevelAvailable
+        m_MethodName: LoadLevelAvailableUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6951,11 +6951,13 @@ MonoBehaviour:
   completeLevelUI: {fileID: 0}
   canvas: {fileID: 0}
   deathUI: {fileID: 0}
-  coinManager: {fileID: 0}
+  CoinManager: {fileID: 0}
   marscoin: {fileID: 0}
   score: {fileID: 0}
   progressLevelBar: {fileID: 0}
   timeToFinish: {fileID: 0}
+  powerup: {fileID: 0}
+  gameHasEnded: 0
   restartDelay: 2
   stopGame: 0
   filePathSetting: Assets/Json/PlayerList.json

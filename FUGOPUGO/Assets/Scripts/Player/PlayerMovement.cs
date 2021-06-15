@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,10 +6,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float zForce; // Force vertical
     [SerializeField] private float xForce; // Force horizontal
     [SerializeField] private float jumpForce;
-    private bool isOnMovement;
     private bool isGrounded;
     protected Animator anim;
-
     protected GameObject GameManager;
 
     public Animator Anim
@@ -50,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         xForce = 20f;
         jumpForce = 7f;
         isGrounded = true;
-        isOnMovement = false;
         anim = GetComponent<Animator>();
         rb = this.gameObject.GetComponent<Rigidbody>();
         GameManager = GameObject.Find("GameManager");
@@ -88,26 +83,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Vertical") > 0) 
         {
             rb.AddForce(0f, 0f, zForce * Time.deltaTime, ForceMode.VelocityChange);
-            isOnMovement = true;
         }
         else if (Input.GetAxisRaw("Vertical") < 0)
         {
             rb.AddForce(0f, 0f, -zForce * Time.deltaTime, ForceMode.VelocityChange);
-            isOnMovement = true;
         }
 
         // Move player horizontal
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             rb.AddForce(-xForce * Time.deltaTime, 0f, 0f, ForceMode.VelocityChange);
-            isOnMovement = true;
         }
         else if(Input.GetAxisRaw("Horizontal") > 0)
         {
             rb.AddForce(xForce * Time.deltaTime, 0f, 0f, ForceMode.VelocityChange);
-            isOnMovement = true;
         }
-        isOnMovement = false;
     }
 
     private void Crounched()

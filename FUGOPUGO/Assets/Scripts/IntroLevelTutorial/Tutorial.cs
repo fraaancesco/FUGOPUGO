@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
@@ -10,7 +9,6 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject TextTutorial;
     [SerializeField] private GameObject ProgressLevel;
     [SerializeField] private GameObject MarsCoin;
-    [SerializeField] private GameObject PowerUps;
     [SerializeField] private GameObject TimeToFinish;
     [SerializeField] private GameObject Score;
     [SerializeField] private GameObject Handle;
@@ -28,8 +26,6 @@ public class Tutorial : MonoBehaviour
     private List<GameObject> powerUp = new List<GameObject>();
     private Vector3 PositionPlayer;
     private Animator animPlayer;
-    [SerializeField] private float zForcePlayer;
-    [SerializeField] private float jumpForcePlayer;
     [SerializeField] private GameObject wall;
 
     [SerializeField] private GameObject end;
@@ -74,9 +70,6 @@ public class Tutorial : MonoBehaviour
         MarsCoin.SetActive(false);
 
 
-        PowerUps = GameObject.Find("Canvas/PowerUps");
-
-
         TimeToFinish = GameObject.Find("Canvas/TimeToFinish");
         TimeToFinish.SetActive(false);
 
@@ -85,15 +78,12 @@ public class Tutorial : MonoBehaviour
 
         PositionPlayer = TargetPlayer.transform.position;
         animPlayer = TargetPlayer.GetComponent<PlayerMovement>().Anim;
-        zForcePlayer = TargetPlayer.GetComponent<PlayerMovement>().ZForce;
-        jumpForcePlayer = TargetPlayer.GetComponent<PlayerMovement>().JumpForce;
 
         tutorialIsActive = true;
 
-        for (int i = 0; i < 3; i++)
-        {
-            coins.Add(ObjectPooler.GetComponent<ObjectPooler>().getPooledObject("Marscoin").gameObject);
-        }
+       
+        coins.Add(ObjectPooler.GetComponent<ObjectPooler>().getPooledObject("Marscoin").gameObject);
+        
 
         powerUp.Add(ObjectPooler.GetComponent<ObjectPooler>().getPooledObject("Magnet").gameObject);
         powerUp.Add(ObjectPooler.GetComponent<ObjectPooler>().getPooledObject("ResizeScale").gameObject);
@@ -111,7 +101,7 @@ public class Tutorial : MonoBehaviour
 
     private void Update()
     {
-        moveEnd();  
+        MoveEnd();  
     }
 
     IEnumerator IntroTutorial()
@@ -125,7 +115,7 @@ public class Tutorial : MonoBehaviour
         // For the mov..
         TutorialStepText.text = TutorialStep[1];  
         yield return new WaitForSeconds(5f);
-        yield return new WaitWhile(() => verifyMovePlayer() == false || verifyCrounchedPlayer() == false);
+        yield return new WaitWhile(() => VerifyMovePlayer() == false || VerifyCrounchedPlayer() == false);
 
 
         // The bar..
@@ -151,9 +141,9 @@ public class Tutorial : MonoBehaviour
 
         // For jump..
         TutorialStepText.text = TutorialStep[3];
-        verifyJumpPlayer();
+        VerifyJumpPlayer();
         yield return new WaitForSeconds(5f);
-        yield return new WaitWhile(() => verifyJumpPlayer() == false);
+        yield return new WaitWhile(() => VerifyJumpPlayer() == false);
 
 
         // Use this variable for the spawn..
@@ -274,19 +264,19 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         // Decrement progressLevel (4/4)
-        distanceToEnd = distanceToEnd - 24;
-        ProgressLevel.GetComponent<ProgressLevel>().IncrementProgressLevel(distanceToEnd);
-        tutorialIsActive = false;
-
+        distanceToEnd = distanceToEnd - 10;
+        ProgressLevel.GetComponent<ProgressLevel>().IncrementProgressLevel(distanceToEnd - 15);
+        
         // Good luck
         TutorialStepText.text = TutorialStep[19];
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         TutorialStepText.text = "";
+        tutorialIsActive = false;
 
     }
 
 
-    bool verifyJumpPlayer()
+    bool VerifyJumpPlayer()
     {
         if (animPlayer.GetCurrentAnimatorStateInfo(0).IsName("Player_Jump"))
         {
@@ -296,7 +286,7 @@ public class Tutorial : MonoBehaviour
         return false;
     }
 
-    bool verifyMovePlayer()
+    bool VerifyMovePlayer()
     {
         if (PositionPlayer.x != TargetPlayer.transform.position.x || PositionPlayer.z != TargetPlayer.transform.position.z)
         {
@@ -306,7 +296,7 @@ public class Tutorial : MonoBehaviour
         return false;
     }
 
-    bool verifyCrounchedPlayer()
+    bool VerifyCrounchedPlayer()
     {
         if (animPlayer.GetCurrentAnimatorStateInfo(0).IsName("Player_Crounched"))
         {
@@ -316,7 +306,7 @@ public class Tutorial : MonoBehaviour
         return false;
     }
 
-    void moveEnd()
+    void MoveEnd()
     {
         if (tutorialIsActive)
         {

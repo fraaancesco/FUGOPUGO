@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Coin: MonoBehaviour
 {
 
     [SerializeField] private GameObject CoinManager;
-    [SerializeField] private GameObject objectPooler;
+    [SerializeField] private GameObject ObjectPooler;
 
     [SerializeField] private int valueCoin;
     [SerializeField] private string nameCoin;
@@ -36,22 +34,22 @@ public class Coin: MonoBehaviour
     private void Start()
     {
         CoinManager = GameObject.Find("CoinManager");
-        objectPooler = GameObject.Find("ObjectPooler");
+        ObjectPooler = GameObject.Find("ObjectPooler");
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         coinMovement = gameObject.GetComponent<CoinMovement>();
         MoveSpeedCoin = 40f;
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        //Se entro in collisione con il detector del player.
+        // If collide with the  player's coin detector.
         if(other.gameObject.tag == "Coin Detector")
         {
             Debug.Log("Ho colliso con " + other.name);
             coinMovement.enabled = true;
         }
 
-        //Se entro in collisione con il player, inserisco la moneta raccolta nel coin manager e la inserisco nel pool.
+        // If collide with player, add the coin on the pool.
         if (other.gameObject.layer == 9)
         {
 
@@ -59,7 +57,7 @@ public class Coin: MonoBehaviour
             //this.gameObject.SetActive(false);
             SoundManager.Instance.CoinSound();
             CoinManager.GetComponent<CoinManager>().AddCoins(this.GetComponent<Coin>().ValueCoin);
-            objectPooler.GetComponent<ObjectPooler>().EnqueuePooled("Marscoin", gameObject.transform.parent.gameObject);
+            ObjectPooler.GetComponent<ObjectPooler>().EnqueuePooled("Marscoin", gameObject.transform.parent.gameObject);
 
         }
     }
