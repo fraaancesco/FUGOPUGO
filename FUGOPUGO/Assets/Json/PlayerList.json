@@ -1,25 +1,3 @@
 {
-    "player": [
-        {
-            "namePlayer": "Enter Name",
-            "wallet": 0,
-            "levelPassed": 0,
-            "score": [
-                0.0,
-                0.0,
-                0.0
-            ],
-<<<<<<< Updated upstream
-            "IndexSkin": 0,
-=======
-            "indexSkin": 0,
->>>>>>> Stashed changes
-            "skinUnlocked": [
-                true,
-                false,
-                false,
-                false
-            ]
-        }
-    ]
+    "player": []
 }

@@ -37,7 +37,7 @@ public class Coin: MonoBehaviour
         ObjectPooler = GameObject.Find("ObjectPooler");
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         coinMovement = gameObject.GetComponent<CoinMovement>();
-        MoveSpeedCoin = 40f;
+        MoveSpeedCoin = 50f;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlatformSpawnCoin : MonoBehaviour
 {
+    [SerializeField] private GameObject spawnPoint;
     [SerializeField] private CoinGenerator coin;
     [SerializeField] private List<GameObject> spawnPoints;
     private Transform SpawnTrans;
@@ -11,25 +11,16 @@ public class PlatformSpawnCoin : MonoBehaviour
 
     private void Awake()
     {
-         coin = GameObject.Find("SpawnCoins").GetComponent<CoinGenerator>();
-         spawnPoints = new List<GameObject>();
-        string concat;
-        // Level 01
-        if (SceneManager.GetActiveScene().buildIndex == 2) 
-        {     
-            for (int i = 1; i <= 30; i++) 
-            { 
-                concat = "PointSpawnCoin_" + i;
-                spawnPoints.Add(GameObject.Find(concat));
-            }
-        }
-        // Level 02
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        spawnPoint = GameObject.Find("PointSpawnCoins");
+        coin = GameObject.Find("SpawnCoins").GetComponent<CoinGenerator>();
+        spawnPoints = new List<GameObject>(); 
+
+        // Find all spawns.
+        if (SceneManager.GetActiveScene().buildIndex >= 2) 
         {
-            for (int i = 1; i <= 15; i++)
+            for (int i = 0; i < spawnPoint.transform.childCount; i++)
             {
-                concat = "PointSpawnCoin_" + i;
-                spawnPoints.Add(GameObject.Find(concat));
+                spawnPoints.Add(spawnPoint.transform.GetChild(i).gameObject);
             }
         }
     }
@@ -69,6 +60,8 @@ public class PlatformSpawnCoin : MonoBehaviour
             SpawnForEachPointTheCoins(1, spawnPoints[28].transform, 2, 10);
             SpawnForEachPointTheCoins(1, spawnPoints[29].transform, 2, 30);
         }
+
+        // Level 02
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             SpawnForEachPointTheCoins(1, spawnPoints[0].transform, 2, 10);
@@ -87,6 +80,30 @@ public class PlatformSpawnCoin : MonoBehaviour
             SpawnForEachPointTheCoins(4, spawnPoints[13].transform, 2, 3);
             SpawnForEachPointTheCoins(3, spawnPoints[14].transform, 2, 3);
            // SpawnForEachPointTheCoins(1, spawnPoints[15].transform, 2, 3);
+        }
+
+        // Level 03
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            SpawnForEachPointTheCoins(1, spawnPoints[0].transform, 2, 10);
+            SpawnForEachPointTheCoins(4, spawnPoints[1].transform, 1, 3);
+            SpawnForEachPointTheCoins(1, spawnPoints[2].transform, 2, 4);
+            SpawnForEachPointTheCoins(4, spawnPoints[3].transform, 2, 5);
+            SpawnForEachPointTheCoins(1, spawnPoints[4].transform, 2, 7);
+            SpawnForEachPointTheCoins(1, spawnPoints[5].transform, 2, 7);
+            SpawnForEachPointTheCoins(1, spawnPoints[6].transform, 3, 20);
+            SpawnForEachPointTheCoins(1, spawnPoints[7].transform, 2, 7);
+            SpawnForEachPointTheCoins(1, spawnPoints[8].transform, 3, 30);
+            SpawnForEachPointTheCoins(1, spawnPoints[9].transform, 2, 7);
+            SpawnForEachPointTheCoins(1, spawnPoints[10].transform, 5, 5);
+            SpawnForEachPointTheCoins(1, spawnPoints[11].transform, 4, 50);
+            SpawnForEachPointTheCoins(1, spawnPoints[12].transform, 2, 3);
+            SpawnForEachPointTheCoins(4, spawnPoints[13].transform, 2, 3);
+            SpawnForEachPointTheCoins(4, spawnPoints[14].transform, 2, 3);
+            SpawnForEachPointTheCoins(1, spawnPoints[15].transform, 2, 3);
+            SpawnForEachPointTheCoins(1, spawnPoints[16].transform, 3, 30);
+            SpawnForEachPointTheCoins(1, spawnPoints[17].transform, 2, 3);
+
         }
     }
 

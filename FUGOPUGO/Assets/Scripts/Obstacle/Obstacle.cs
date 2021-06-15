@@ -7,9 +7,7 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] protected bool isOnMovementX;
     [SerializeField] protected bool isOnMovementY;
-
     [SerializeField] protected bool isOnRotation;
-    [SerializeField] protected bool isCrazy;
 
     protected Animator anim;
     private void Start()
@@ -39,14 +37,6 @@ public class Obstacle : MonoBehaviour
         if(isOnRotation)
         {
             Debug.Log("Rotation obstacle");
-        }
-    }
-
-    protected virtual void Crazy()
-    {
-        if(isCrazy)
-        {
-            Debug.Log("Crazy Movement");
         }
     }
 

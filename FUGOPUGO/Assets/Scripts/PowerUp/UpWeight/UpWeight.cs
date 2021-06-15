@@ -18,7 +18,7 @@ public class UpWeight : PowerUp
         }
         else
         {
-            Debug.Log("GameObject PowerUp non trovato");
+            Debug.Log("PowerUp not found");
         }
 
         rigidBodyPlayer = GameObject.Find("Player").GetComponent<Rigidbody>();

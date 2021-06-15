@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PowerUpCoroutine : MonoBehaviour
 {
@@ -39,7 +37,7 @@ public class PowerUpCoroutine : MonoBehaviour
         UpWeight script = obj.GetComponent<UpWeight>();
         obj.transform.parent.gameObject.SetActive(false);
         StartCoroutine(script.InvokePowerUp());
-        //objectPooler.GetComponent<ObjectPooler>().EnqueuePooled("UpWeight", obj.transform.parent.gameObject);
+        // objectPooler.GetComponent<ObjectPooler>().EnqueuePooled("UpWeight", obj.transform.parent.gameObject);
         Destroy(obj.transform.parent.gameObject);
     }
 }

@@ -39,7 +39,6 @@ public class PowerUp : MonoBehaviour
     }
     public virtual IEnumerator InvokePowerUp()
     {
-        Debug.Log("Power Up preso!");
         yield return 0;
     }
 

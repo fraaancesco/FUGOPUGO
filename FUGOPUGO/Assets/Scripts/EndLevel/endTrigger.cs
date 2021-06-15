@@ -10,7 +10,7 @@ public class endTrigger : MonoBehaviour
         if (other.gameObject.layer == 9) 
         {
             GameManager.Instance.CompleteLevel();
-           // SoundManager.Instance.LevelEnd();
+            SoundManager.Instance.LevelEnd();
         }
     }
 

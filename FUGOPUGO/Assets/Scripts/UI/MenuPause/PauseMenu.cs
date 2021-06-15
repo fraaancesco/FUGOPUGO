@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
@@ -13,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     {
         GameManager = GameObject.Find("GameManager");
         pauseMenuUI = GameObject.Find("Canvas/PauseMenu").gameObject;
+
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             introLevel = GameObject.Find("IntroLevel");
@@ -25,7 +24,6 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.GetComponent<GameManager>().gameHasEnded) 
         {
             isPaused = !isPaused;
-
         }
 
         if (isPaused) 

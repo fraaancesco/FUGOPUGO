@@ -17,7 +17,7 @@ public class Magnet : PowerUp
         }
         else
         {
-            Debug.Log("GameObject PowerUp non trovato");
+            Debug.Log("PowerUp not found");
         }
 
         if (GameObject.Find("Player"))
@@ -26,7 +26,7 @@ public class Magnet : PowerUp
         }
         else
         {
-            Debug.Log("Coin Detector non trovato");
+            Debug.Log("Coin Detector not found");
         }
 
 

@@ -9,6 +9,5 @@ public class Wall : Obstacle
         isOnMovementX = false;
         isOnMovementY = false;
         isOnRotation = false;
-        isCrazy = false;
     }
 }

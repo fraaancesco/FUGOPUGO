@@ -21,7 +21,7 @@ public class ResizeScale : PowerUp
         }
         else
         {
-            Debug.Log("GameObject PowerUp non trovato");
+            Debug.Log(" PowerUp not found");
         }
 
         scaleResizePlayer = new Vector3(0.5f,0.5f,0.5f);
