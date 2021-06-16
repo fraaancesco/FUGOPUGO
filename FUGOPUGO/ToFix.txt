@@ -1,2 +1,0 @@
-Sistemare i prezzi di ogni scena dello SkinContainer sul Player-> Cubo
-Copiare il soundmanager del menu e dell'intro level nei livelli successivi  0 / 150 / 300 / 500
