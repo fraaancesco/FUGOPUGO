@@ -50,6 +50,9 @@ public class SoundManager : Singleton<SoundManager>
             case 3:
                 musicSource.clip = soundTrack[3];
                 break;
+            case 4:
+                musicSource.clip = soundTrack[4];
+                break;
 
             default:
                 break;

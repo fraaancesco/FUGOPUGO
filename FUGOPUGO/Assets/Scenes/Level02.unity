@@ -39625,22 +39625,27 @@ PrefabInstance:
     - target: {fileID: 1167459392501561159, guid: 435e5b768ccc7564381e37b7e489414b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 4.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167459392501561159, guid: 435e5b768ccc7564381e37b7e489414b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 1167459392501561159, guid: 435e5b768ccc7564381e37b7e489414b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 1167459392501561159, guid: 435e5b768ccc7564381e37b7e489414b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.89
+      value: 12.49
       objectReference: {fileID: 0}
     - target: {fileID: 1167459392501561159, guid: 435e5b768ccc7564381e37b7e489414b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 473.2
+      value: 387.31
       objectReference: {fileID: 0}
     - target: {fileID: 1167459392501561159, guid: 435e5b768ccc7564381e37b7e489414b,
         type: 3}
@@ -50985,7 +50990,6 @@ MonoBehaviour:
   distanceToEndLevel: 0
   distanceFinal: 0
   slider: {fileID: 0}
-  partSystem: {fileID: 0}
 --- !u!114 &1912670361
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,10 +15,6 @@ public class ProgressLevel : MonoBehaviour
     [SerializeField] private float distanceToEndLevel;
     [SerializeField] private float distanceFinal;
     [SerializeField] private Slider slider;
-    [SerializeField] private ParticleSystem partSystem;
-    private float targetLevelProgress = 0;
-    private float FillSpeed = 0.5f;
-
 
     public float DistanceFinal
     {
@@ -29,7 +25,6 @@ public class ProgressLevel : MonoBehaviour
     private void Awake()
     {
         slider = gameObject.GetComponent<Slider>();
-        //partSystem = GameObject.Find("ProgressLevel Bar Particles").GetComponent<ParticleSystem>();
     }
 
     void Start()
@@ -47,7 +42,7 @@ public class ProgressLevel : MonoBehaviour
         slider.minValue = positionStartLevel.z;
         slider.maxValue = positionEndLevel.z;
 
-        distanceFinal = Mathf.Round(Mathf.Sqrt(Mathf.Pow(positionEndLevel.x - positionStartLevel.x, 2) + Mathf.Pow(positionEndLevel.y - positionStartLevel.y, 2) + Mathf.Pow(positionEndLevel.z - positionStartLevel.z,2 )));
+        distanceFinal = positionEndLevel.z - positionPlayer.z;
     }
 
     void Update()

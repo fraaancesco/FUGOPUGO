@@ -5135,7 +5135,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1886076046}
         m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
@@ -24003,7 +24003,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1886076046}
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
@@ -32541,7 +32541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1886076046}
         m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
@@ -73225,7 +73225,6 @@ MonoBehaviour:
   distanceToEndLevel: 0
   distanceFinal: 0
   slider: {fileID: 0}
-  partSystem: {fileID: 0}
 --- !u!114 &1847116569
 MonoBehaviour:
   m_ObjectHideFlags: 0
