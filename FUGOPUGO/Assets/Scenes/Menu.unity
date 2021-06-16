@@ -2185,10 +2185,10 @@ MonoBehaviour:
   finishLevel: {fileID: 0}
   soundTrack:
   - {fileID: 8300000, guid: 2f5c1292c824c2747a4fcdb0daa98925, type: 3}
-  - {fileID: 8300000, guid: 88c774eb862088347bef31a289fdbd9d, type: 3}
-  - {fileID: 8300000, guid: 89a4b92fae0384b4db77a9bcd61640b0, type: 3}
   - {fileID: 8300000, guid: 31954f383448c0c42bbccfae41fbe792, type: 3}
-  - {fileID: 8300000, guid: 99a0504b49ff98d4fb1331911eb3cbda, type: 3}
+  - {fileID: 8300000, guid: 89a4b92fae0384b4db77a9bcd61640b0, type: 3}
+  - {fileID: 8300000, guid: 18674d952e9406f4497001d181788ba5, type: 3}
+  - {fileID: 8300000, guid: 1c67fbcf089f6d2448427dcfeca315e5, type: 3}
   playerJump:
   - {fileID: 8300000, guid: a7930954a48413d4fa3772f6b978927c, type: 3}
   - {fileID: 8300000, guid: 000310c7f5ea9194cb60ccd1e3c54a6c, type: 3}

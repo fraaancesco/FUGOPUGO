@@ -29,6 +29,7 @@ public class SoundManager : Singleton<SoundManager>
         PlayerSetup();
         CoinSetup();
         PowerUpSetup();
+        FinishLevelSetup();
     }
 
     private void SoundTrack(int level)

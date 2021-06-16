@@ -7541,76 +7541,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824553078}
   m_CullTransparentMesh: 0
---- !u!1 &883373192
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 883373194}
-  - component: {fileID: 883373193}
-  m_Layer: 0
-  m_Name: SoundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &883373193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883373192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e94057a442b4347af3b2c860c77cc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 0}
-  CoinSource: {fileID: 0}
-  playerSource: {fileID: 0}
-  powerUpSource: {fileID: 0}
-  finishLevel: {fileID: 0}
-  soundTrack:
-  - {fileID: 8300000, guid: 2f5c1292c824c2747a4fcdb0daa98925, type: 3}
-  - {fileID: 8300000, guid: 31954f383448c0c42bbccfae41fbe792, type: 3}
-  - {fileID: 8300000, guid: 89a4b92fae0384b4db77a9bcd61640b0, type: 3}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 99a0504b49ff98d4fb1331911eb3cbda, type: 3}
-  playerJump:
-  - {fileID: 8300000, guid: a7930954a48413d4fa3772f6b978927c, type: 3}
-  - {fileID: 8300000, guid: 000310c7f5ea9194cb60ccd1e3c54a6c, type: 3}
-  playerObstacle:
-  - {fileID: 8300000, guid: 0b4dc07a0980dc84cbae07a45cbdedf3, type: 3}
-  playerCrouch: {fileID: 8300000, guid: a34c9283b98625c4f837e09ea4205bb7, type: 3}
-  coin: {fileID: 8300000, guid: 5e09566d03132fc4f9f7d0f317dc8a91, type: 3}
-  magnet: {fileID: 8300000, guid: 90debc9f1d1bff846aeb518f84e439fd, type: 3}
-  resizeScale: {fileID: 8300000, guid: 12b3a9eb10ccfbc4fb144505c9143d9b, type: 3}
-  upWeight: {fileID: 8300000, guid: 3b36deb694a21d64ab67332f4c1db4eb, type: 3}
-  levelComplete: {fileID: 8300000, guid: 9a197742baf06a241b01085cf82374ed, type: 3}
-  buttonSource: {fileID: 0}
-  clipButton:
-  - {fileID: 8300000, guid: 368ddd4cf7a7cc04598996dfa34aa95a, type: 3}
-  - {fileID: 8300000, guid: 030fe1848dba62142813f3b2bae04a8c, type: 3}
-  audioMixer: {fileID: 24300002, guid: 17c5206ef05dc2a47b9dd8dfbd898eec, type: 2}
---- !u!4 &883373194
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883373192}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.39, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &940471717
 GameObject:
   m_ObjectHideFlags: 0
@@ -8710,6 +8640,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347419820}
   m_CullTransparentMesh: 0
+--- !u!1 &1353785978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353785980}
+  - component: {fileID: 1353785979}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1353785979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353785978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e94057a442b4347af3b2c860c77cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 0}
+  CoinSource: {fileID: 0}
+  playerSource: {fileID: 0}
+  powerUpSource: {fileID: 0}
+  finishLevel: {fileID: 0}
+  soundTrack:
+  - {fileID: 8300000, guid: 2f5c1292c824c2747a4fcdb0daa98925, type: 3}
+  - {fileID: 8300000, guid: 31954f383448c0c42bbccfae41fbe792, type: 3}
+  - {fileID: 8300000, guid: 89a4b92fae0384b4db77a9bcd61640b0, type: 3}
+  - {fileID: 8300000, guid: 18674d952e9406f4497001d181788ba5, type: 3}
+  - {fileID: 8300000, guid: 1c67fbcf089f6d2448427dcfeca315e5, type: 3}
+  playerJump:
+  - {fileID: 8300000, guid: a7930954a48413d4fa3772f6b978927c, type: 3}
+  - {fileID: 8300000, guid: 000310c7f5ea9194cb60ccd1e3c54a6c, type: 3}
+  playerObstacle:
+  - {fileID: 8300000, guid: 0b4dc07a0980dc84cbae07a45cbdedf3, type: 3}
+  playerCrouch: {fileID: 8300000, guid: a34c9283b98625c4f837e09ea4205bb7, type: 3}
+  coin: {fileID: 8300000, guid: 5e09566d03132fc4f9f7d0f317dc8a91, type: 3}
+  magnet: {fileID: 8300000, guid: 90debc9f1d1bff846aeb518f84e439fd, type: 3}
+  resizeScale: {fileID: 8300000, guid: 12b3a9eb10ccfbc4fb144505c9143d9b, type: 3}
+  upWeight: {fileID: 8300000, guid: 3b36deb694a21d64ab67332f4c1db4eb, type: 3}
+  levelComplete: {fileID: 8300000, guid: 9a197742baf06a241b01085cf82374ed, type: 3}
+  buttonSource: {fileID: 0}
+  clipButton:
+  - {fileID: 8300000, guid: 368ddd4cf7a7cc04598996dfa34aa95a, type: 3}
+  - {fileID: 8300000, guid: 030fe1848dba62142813f3b2bae04a8c, type: 3}
+  audioMixer: {fileID: 24300002, guid: 17c5206ef05dc2a47b9dd8dfbd898eec, type: 2}
+--- !u!4 &1353785980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353785978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.39, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1366732164
 GameObject:
   m_ObjectHideFlags: 0
@@ -9103,6 +9103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3409fcc9632cda844894bfa38f61247c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
   coin: {fileID: 0}
   spawnPoints: []
 --- !u!4 &1621203943
@@ -10372,7 +10373,7 @@ RectTransform:
   - {fileID: 305263165}
   - {fileID: 43478391}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

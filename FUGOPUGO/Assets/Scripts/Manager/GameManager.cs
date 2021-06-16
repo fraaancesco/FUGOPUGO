@@ -70,12 +70,10 @@ public class GameManager : Singleton<GameManager>
             if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
-                //AudioListener.pause = true;
             }
             else
             {
                 Time.timeScale = 1;
-                //AudioListener.pause = false;
             }
         }
     }
@@ -131,6 +129,7 @@ public class GameManager : Singleton<GameManager>
             gameHasEnded = true;
             deathUI.SetActive(true);
             SetFalseUserUI();
+
         }
     }
 

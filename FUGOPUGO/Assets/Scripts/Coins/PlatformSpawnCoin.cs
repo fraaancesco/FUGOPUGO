@@ -65,7 +65,7 @@ public class PlatformSpawnCoin : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             SpawnForEachPointTheCoins(1, spawnPoints[0].transform, 2, 10);
-            SpawnForEachPointTheCoins(2, spawnPoints[1].transform, 2, 3);
+            SpawnForEachPointTheCoins(4, spawnPoints[1].transform, 2, 3);
             SpawnForEachPointTheCoins(1, spawnPoints[2].transform, 2, 20);
             SpawnForEachPointTheCoins(1, spawnPoints[3].transform, 2, 7);
             SpawnForEachPointTheCoins(1, spawnPoints[4].transform, 2, 7);

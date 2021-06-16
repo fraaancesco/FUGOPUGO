@@ -1223,7 +1223,7 @@ Transform:
   m_Children:
   - {fileID: 117782118}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96252474
 GameObject:
@@ -5096,7 +5096,7 @@ Transform:
   m_Children:
   - {fileID: 1886629807}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &351847060 stripped
 Transform:
@@ -11085,7 +11085,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 7, y: 0, z: 0}
 --- !u!1 &775370148
 GameObject:
@@ -11254,7 +11254,7 @@ RectTransform:
   - {fileID: 34488548}
   - {fileID: 1778171398}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14276,6 +14276,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1171544249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &980645541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980645543}
+  - component: {fileID: 980645542}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &980645542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980645541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e94057a442b4347af3b2c860c77cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 0}
+  CoinSource: {fileID: 0}
+  playerSource: {fileID: 0}
+  powerUpSource: {fileID: 0}
+  finishLevel: {fileID: 0}
+  soundTrack:
+  - {fileID: 8300000, guid: 2f5c1292c824c2747a4fcdb0daa98925, type: 3}
+  - {fileID: 8300000, guid: 31954f383448c0c42bbccfae41fbe792, type: 3}
+  - {fileID: 8300000, guid: 89a4b92fae0384b4db77a9bcd61640b0, type: 3}
+  - {fileID: 8300000, guid: 18674d952e9406f4497001d181788ba5, type: 3}
+  - {fileID: 8300000, guid: 1c67fbcf089f6d2448427dcfeca315e5, type: 3}
+  playerJump:
+  - {fileID: 8300000, guid: a7930954a48413d4fa3772f6b978927c, type: 3}
+  - {fileID: 8300000, guid: 000310c7f5ea9194cb60ccd1e3c54a6c, type: 3}
+  playerObstacle:
+  - {fileID: 8300000, guid: 0b4dc07a0980dc84cbae07a45cbdedf3, type: 3}
+  playerCrouch: {fileID: 8300000, guid: a34c9283b98625c4f837e09ea4205bb7, type: 3}
+  coin: {fileID: 8300000, guid: 5e09566d03132fc4f9f7d0f317dc8a91, type: 3}
+  magnet: {fileID: 8300000, guid: 90debc9f1d1bff846aeb518f84e439fd, type: 3}
+  resizeScale: {fileID: 8300000, guid: 12b3a9eb10ccfbc4fb144505c9143d9b, type: 3}
+  upWeight: {fileID: 8300000, guid: 3b36deb694a21d64ab67332f4c1db4eb, type: 3}
+  levelComplete: {fileID: 8300000, guid: 9a197742baf06a241b01085cf82374ed, type: 3}
+  buttonSource: {fileID: 0}
+  clipButton:
+  - {fileID: 8300000, guid: 368ddd4cf7a7cc04598996dfa34aa95a, type: 3}
+  - {fileID: 8300000, guid: 030fe1848dba62142813f3b2bae04a8c, type: 3}
+  audioMixer: {fileID: 24300002, guid: 17c5206ef05dc2a47b9dd8dfbd898eec, type: 2}
+--- !u!4 &980645543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980645541}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.39, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &991945931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16100,7 +16170,7 @@ Transform:
   - {fileID: 1864926581}
   - {fileID: 2092846063}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1081876164 stripped
 Transform:
@@ -29539,7 +29609,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1886076046}
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
@@ -29748,7 +29818,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.67332}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1802016156 stripped
 Transform:
@@ -30549,7 +30619,7 @@ Transform:
   - {fileID: 1641215009}
   - {fileID: 386428049}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1864926581 stripped
 Transform:
@@ -32851,75 +32921,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 310563355}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1993834591
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1993834593}
-  - component: {fileID: 1993834592}
-  m_Layer: 0
-  m_Name: SoundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1993834592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993834591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e94057a442b4347af3b2c860c77cc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 0}
-  CoinSource: {fileID: 0}
-  playerSource: {fileID: 0}
-  powerUpSource: {fileID: 0}
-  finishLevel: {fileID: 0}
-  soundTrack:
-  - {fileID: 8300000, guid: 2f5c1292c824c2747a4fcdb0daa98925, type: 3}
-  - {fileID: 8300000, guid: 31954f383448c0c42bbccfae41fbe792, type: 3}
-  - {fileID: 8300000, guid: af05eb31bb291904b8f8a7e4cb868e98, type: 3}
-  - {fileID: 8300000, guid: 18674d952e9406f4497001d181788ba5, type: 3}
-  playerJump:
-  - {fileID: 8300000, guid: a7930954a48413d4fa3772f6b978927c, type: 3}
-  - {fileID: 8300000, guid: 000310c7f5ea9194cb60ccd1e3c54a6c, type: 3}
-  playerObstacle:
-  - {fileID: 8300000, guid: 0b4dc07a0980dc84cbae07a45cbdedf3, type: 3}
-  playerCrouch: {fileID: 8300000, guid: a34c9283b98625c4f837e09ea4205bb7, type: 3}
-  coin: {fileID: 8300000, guid: 5e09566d03132fc4f9f7d0f317dc8a91, type: 3}
-  magnet: {fileID: 8300000, guid: 90debc9f1d1bff846aeb518f84e439fd, type: 3}
-  resizeScale: {fileID: 8300000, guid: 12b3a9eb10ccfbc4fb144505c9143d9b, type: 3}
-  upWeight: {fileID: 8300000, guid: 3b36deb694a21d64ab67332f4c1db4eb, type: 3}
-  levelComplete: {fileID: 8300000, guid: 9a197742baf06a241b01085cf82374ed, type: 3}
-  buttonSource: {fileID: 0}
-  clipButton:
-  - {fileID: 8300000, guid: 368ddd4cf7a7cc04598996dfa34aa95a, type: 3}
-  - {fileID: 8300000, guid: 030fe1848dba62142813f3b2bae04a8c, type: 3}
-  audioMixer: {fileID: 24300002, guid: 17c5206ef05dc2a47b9dd8dfbd898eec, type: 2}
---- !u!4 &1993834593
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993834591}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.39, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2002938193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33652,7 +33653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1886076046}
         m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
@@ -34148,7 +34149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087564755
 GameObject:
@@ -34449,7 +34450,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1886076046}
         m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
@@ -34492,7 +34493,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next Level
+  m_Text: Credits
 --- !u!222 &2126064969
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34726,7 +34727,7 @@ Transform:
   - {fileID: 1545671153}
   - {fileID: 1354604530}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2137727574
 PrefabInstance:
