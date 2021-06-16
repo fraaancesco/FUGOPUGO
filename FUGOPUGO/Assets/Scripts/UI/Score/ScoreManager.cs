@@ -28,18 +28,22 @@ public class ScoreManager : MonoBehaviour
         bool checkPlayer = false;
         foreach (Score item in scoredata.scores)
         {
-           // Debug.Log("name : " + item.name + "score" + item.score);
-          
-            if (item.name == score.name && item.score < score.score)
+    
+            if (item.name == score.name)
             {
-                item.score = score.score;
                 checkPlayer = true;
-                
+                if (score.score >= item.score)
+                {
+                    Debug.Log("name : " + score.name + "score" + score.score + " > =" + item.score);
+                    Debug.Log("checkplayer " + checkPlayer);
+                    item.score = score.score;
+                }
+            
             }
             
         }
-        if(checkPlayer == false)
-             scoredata.scores.Add(score);
+        if (checkPlayer == false)
+                scoredata.scores.Add(score);
 
 
     }
