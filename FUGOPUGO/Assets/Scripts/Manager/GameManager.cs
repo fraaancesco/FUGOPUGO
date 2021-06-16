@@ -35,9 +35,6 @@ public class GameManager : Singleton<GameManager>
     {
         
         filePathSetting = Path.Combine(Application.persistentDataPath, "PlayerList.json");
-        Debug.Log(filePathSetting);
-        
-        scoreManager.LoadScoreboard();
        
         CoinManager = GameObject.Find("CoinManager");
         stopGame = false;

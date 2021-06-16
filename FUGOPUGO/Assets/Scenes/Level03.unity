@@ -33328,6 +33328,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2796610134723951020, guid: eccc9c9571f84f24ab79a064e3db98bb,
+        type: 3}
+      propertyPath: skins.Array.data[1].price
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796610134723951020, guid: eccc9c9571f84f24ab79a064e3db98bb,
+        type: 3}
+      propertyPath: skins.Array.data[2].price
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796610134723951020, guid: eccc9c9571f84f24ab79a064e3db98bb,
+        type: 3}
+      propertyPath: skins.Array.data[3].price
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2796610135252048788, guid: eccc9c9571f84f24ab79a064e3db98bb,
         type: 3}
       propertyPath: m_RootOrder

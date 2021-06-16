@@ -1,21 +1,3 @@
 {
-    "player": [
-        {
-            "namePlayer": "Enter Name",
-            "wallet": 0,
-            "levelPassed": 0,
-            "score": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "indexSkin": 0,
-            "skinUnlocked": [
-                true,
-                false,
-                false,
-                false
-            ]
-        }
-    ]
+    "player": []
 }

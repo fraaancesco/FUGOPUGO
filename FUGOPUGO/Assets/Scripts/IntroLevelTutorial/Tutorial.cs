@@ -266,15 +266,16 @@ public class Tutorial : MonoBehaviour
 
         // Good luck
         TutorialStepText.text = TutorialStep[19];
+        
         yield return new WaitForSeconds(4f);
         TutorialStepText.text = "";
-        tutorialIsActive = false;
+        TextTutorial.SetActive(false);
 
         // Decrement progressLevel (4/4)
-        distanceToEnd = distanceToEnd - 15;
+        distanceToEnd = distanceToEnd - 25;
         ProgressLevel.GetComponent<ProgressLevel>().IncrementProgressLevel(distanceToEnd);
-        
-        
+        tutorialIsActive = false;
+
 
     }
 
