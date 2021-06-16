@@ -37,7 +37,6 @@ public class GameManager : Singleton<GameManager>
         filePathSetting = Path.Combine(Application.persistentDataPath, "PlayerList.json");
         Debug.Log(filePathSetting);
         
-        scoreManager.LoadScoreboard();
        
         CoinManager = GameObject.Find("CoinManager");
         stopGame = false;
@@ -121,9 +120,8 @@ public class GameManager : Singleton<GameManager>
             }
             
             Debug.Log("score finale" + finalScore);
-            
-            scoreManager.AddScore(new Score(playerinfo.namePlayer, finalScore)); 
 
+            scoreManager.AddScore(new Score(playerinfo.namePlayer, finalScore));
             scoreManager.SaveScore();
         }
 
