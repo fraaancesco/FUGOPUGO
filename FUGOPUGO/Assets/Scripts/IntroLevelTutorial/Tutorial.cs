@@ -36,12 +36,13 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
-        TutorialStep = new string[] { "Welcome this is the tutorial.", "Press W,A,S,D key for MOVEMENT and press down arrow key to CRUNCH.", "The bar indicate the remaining path to finish the level.","Press SPACE for JUMP.", 
-                                    "Collect the Marscoins to buy the skins in the shop!.","The collected Marscoins will be shown on the top left.","Pick the Marscoin to continue.",
-                                    "There are three types of PowerUps.","When the PowerUp is it picked will be visible on the top right.",
-                                    "The *MAGNET* will attract coins close to you.", "Pick the MAGNET to continue.",
-                                    "The *RESIZESCALE* will make you smaller and faster!.","Pick the RESIZESCALE to continue.","And the *UPWEIGHT* will make you heavy.","Pick the UPWEIGHT.",
-                                    "The time remaining to complete the level is shown on the left.","Finish the level before time runs out, otherwise GAME OVER.","Climb the leaderboard by getting the best score","An advice.. don't fall from the platform and wath out of some obstacles.","Good Luck!" };
+        TutorialStep = new string[] { "Welcome this is the tutorial", "Press W,A,S,D key for MOVEMENT and press down arrow key to CRUNCH", "The bar indicate the remaining path to finish the level","Press SPACE for JUMP", 
+                                    "Collect the Marscoins to buy the skins in the shop!","The collected Marscoins will be shown on the top left","Pick the Marscoin to continue",
+                                    "There are three types of PowerUps","When the PowerUp is it picked will be visible on the top right",
+                                    "The *MAGNET* will attract coins close to you", "Pick the MAGNET to continue",
+                                    "The *RESIZESCALE* will make you smaller and faster!","Pick the RESIZESCALE to continue","And the *UPWEIGHT* will make you heavy","Pick the UPWEIGHT",
+                                    "The time remaining to complete the level is shown on the left","Finish the level before time runs out, otherwise GAME OVER","Climb the leaderboard by getting the best score","An advice.. don't fall from the platform and wath out of some obstacles",
+                                    "Good Luck!" };
 
 
         DialogProgressBar = new string[] { "What's up bro?", "I'll keep you company in the game!!",
@@ -109,19 +110,19 @@ public class Tutorial : MonoBehaviour
      
         // Hi..
         TutorialStepText.text = TutorialStep[0];
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         
         // For the mov..
         TutorialStepText.text = TutorialStep[1];  
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         yield return new WaitWhile(() => VerifyMovePlayer() == false || VerifyCrounchedPlayer() == false);
 
 
         // The bar..
         TutorialStepText.text = TutorialStep[2];
         ProgressLevel.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         TutorialStepText.text = "";
 
         // The rock dialog..
@@ -142,7 +143,7 @@ public class Tutorial : MonoBehaviour
         // For jump..
         TutorialStepText.text = TutorialStep[3];
         VerifyJumpPlayer();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         yield return new WaitWhile(() => VerifyJumpPlayer() == false);
 
 
@@ -156,7 +157,7 @@ public class Tutorial : MonoBehaviour
         SpawnPositionBehindPlayer = new Vector3(0, 7f, TargetPlayer.transform.position.z + i + 5);
         wall.transform.Spawn(SpawnPositionBehindPlayer);
         wall.SetActive(true);
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(6f);
 
         // You can view..
         TutorialStepText.text = TutorialStep[5];
@@ -263,15 +264,17 @@ public class Tutorial : MonoBehaviour
         TutorialStepText.text = TutorialStep[18];
         yield return new WaitForSeconds(5f);
 
-        // Decrement progressLevel (4/4)
-        distanceToEnd = distanceToEnd - 10;
-        ProgressLevel.GetComponent<ProgressLevel>().IncrementProgressLevel(distanceToEnd - 15);
-        
         // Good luck
         TutorialStepText.text = TutorialStep[19];
         yield return new WaitForSeconds(4f);
         TutorialStepText.text = "";
         tutorialIsActive = false;
+
+        // Decrement progressLevel (4/4)
+        distanceToEnd = distanceToEnd - 15;
+        ProgressLevel.GetComponent<ProgressLevel>().IncrementProgressLevel(distanceToEnd);
+        
+        
 
     }
 

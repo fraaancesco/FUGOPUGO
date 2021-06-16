@@ -14,7 +14,6 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Dropdown dropdownQuality;
     private GameSettings gameSettings;
     string filePathSetting; 
-
     private void Awake()
     {
          
