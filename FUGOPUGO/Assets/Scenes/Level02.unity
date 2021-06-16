@@ -13254,6 +13254,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 670959309}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &515869538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515869539}
+  m_Layer: 0
+  m_Name: PointSpawnCoin_16
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &515869539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515869538}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.75, y: 1, z: 2260.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1852945786}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &519597891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46454,7 +46484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins:
   - tag: Marscoin
-    value: 3
+    value: 1
 --- !u!4 &1725236769
 Transform:
   m_ObjectHideFlags: 0
@@ -48431,7 +48461,7 @@ PrefabInstance:
     - target: {fileID: 6684716617850573128, guid: 279a60ab765573748bc131f7e6fd496d,
         type: 3}
       propertyPath: isOnRotation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6684716617850573128, guid: 279a60ab765573748bc131f7e6fd496d,
         type: 3}
@@ -49552,6 +49582,7 @@ Transform:
   - {fileID: 171797720}
   - {fileID: 243509307}
   - {fileID: 1247692177}
+  - {fileID: 515869539}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52407,6 +52438,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029912016244402168, guid: c0c1d53b5df70b64e90e454b20c6fbcb,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6728128981663750528, guid: c0c1d53b5df70b64e90e454b20c6fbcb,
         type: 3}

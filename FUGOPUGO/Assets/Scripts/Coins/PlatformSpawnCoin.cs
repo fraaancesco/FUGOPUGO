@@ -78,8 +78,8 @@ public class PlatformSpawnCoin : MonoBehaviour
             SpawnForEachPointTheCoins(3, spawnPoints[11].transform, 2, 3);
             SpawnForEachPointTheCoins(1, spawnPoints[12].transform, 2, 3);
             SpawnForEachPointTheCoins(4, spawnPoints[13].transform, 2, 3);
-            SpawnForEachPointTheCoins(3, spawnPoints[14].transform, 2, 3);
-           // SpawnForEachPointTheCoins(1, spawnPoints[15].transform, 2, 3);
+            SpawnForEachPointTheCoins(1, spawnPoints[14].transform, 2, 20);
+            SpawnForEachPointTheCoins(4, spawnPoints[15].transform, 2, 3);
         }
 
         // Level 03

@@ -11,7 +11,7 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] AudioClip[] soundTrack;
     [SerializeField] AudioClip[] playerJump , playerObstacle;
     [SerializeField] AudioClip playerCrouch;
-    [SerializeField] AudioClip coin , magnet , resizeScale,upWeight;
+    [SerializeField] AudioClip coin , magnet , resizeScale, upWeight;
     [SerializeField] AudioClip levelComplete;
     [SerializeField] AudioSource buttonSource;
     [SerializeField] AudioClip[] clipButton;
