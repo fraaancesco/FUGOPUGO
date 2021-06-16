@@ -6,17 +6,17 @@ using System.IO;
 public class ScoreManager : MonoBehaviour
 {
     private ScoreData scoredata;
-    private string path = "Assets/Json/Scoreboard.json";
+    
 
     public ScoreData getScoreData()
     {
         return scoredata;
     }
-    void Awake()
-    {
-        scoredata = LoadScoreboard(); 
-    }
 
+    private void Awake()
+    {
+        scoredata = LoadScoreboard();
+    }
     public IEnumerable<Score> GetHighScores()
     {
         return scoredata.scores.OrderByDescending(keySelector: x => x.score);
@@ -25,19 +25,46 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(Score score)
     {
-        scoredata.scores.Add(score);
+        bool checkPlayer = false;
+        foreach (Score item in scoredata.scores)
+        {
+           // Debug.Log("name : " + item.name + "score" + item.score);
+          
+            if (item.name == score.name && item.score < score.score)
+            {
+                item.score = score.score;
+                checkPlayer = true;
+                
+            }
+            
+        }
+        if(checkPlayer == false)
+             scoredata.scores.Add(score);
+
+
     }
 
     // Save the score
     public void SaveScore()
     {
-        var json = JsonUtility.ToJson(scoredata, true);
-        File.WriteAllText(path, json);
+            string path = Path.Combine(Application.persistentDataPath, "Scoreboard.json");
+            var json = JsonUtility.ToJson(scoredata, true); 
+            File.WriteAllText(path, json);
     }
 
     public ScoreData LoadScoreboard()
     {
-        string json = File.ReadAllText(path);
-        return JsonUtility.FromJson<ScoreData>(json);
+        string path = Path.Combine(Application.persistentDataPath, "Scoreboard.json");
+        if (File.Exists(path) is true)
+        {
+            string json = File.ReadAllText(path);
+            return JsonUtility.FromJson<ScoreData>(json);
+        }
+        else if (!File.Exists(path))
+        {
+            scoredata = new ScoreData();
+            SaveScore();
+        }
+        return scoredata;
     }
 }

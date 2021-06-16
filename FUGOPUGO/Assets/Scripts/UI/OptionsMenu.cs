@@ -13,10 +13,12 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Toggle tooglefullscreen;
     [SerializeField] Dropdown dropdownQuality;
     private GameSettings gameSettings;
-    private string filePathSetting = "Assets/Json/GameSetting.json";
+    string filePathSetting; 
+
     private void Awake()
     {
-        gameSettings = new GameSettings();
+         
+         gameSettings = new GameSettings();
         resolutions = Screen.resolutions;
         resolutionsDropdown.ClearOptions();
 
@@ -38,6 +40,7 @@ public class OptionsMenu : MonoBehaviour
     }
     private void Start()
     {
+         
         LoadSettings();
     }
 
@@ -70,26 +73,20 @@ public class OptionsMenu : MonoBehaviour
 
     public void SaveSetting()
     {
+        filePathSetting = Path.Combine(Application.persistentDataPath, "GameSetting.json");
         string jsonString = JsonUtility.ToJson(gameSettings, true); //Crea la stringa da salvare
         File.WriteAllText(filePathSetting, jsonString); //Salva la stringa sul file al percorso stabilito
     }
 
-    bool JsonIsEmpty(string jsonString)
-    {
-        if (string.IsNullOrEmpty(jsonString))
-        {
-
-            return true;
-        }
-
-        return false;
-    }
+ 
     // Funzione per deserializzare il file ed inserire i dati in playerDataObject
     public void LoadSettings()
     {
-        string jsonString = File.ReadAllText(filePathSetting); //Leggi il file
+        filePathSetting = Path.Combine(Application.persistentDataPath, "GameSetting.json");
         
-        if(JsonIsEmpty(jsonString) is false) { 
+        
+        if(File.Exists(filePathSetting) is true) {
+            string jsonString = File.ReadAllText(filePathSetting); //Leggi il file
             gameSettings = JsonUtility.FromJson<GameSettings>(jsonString); 
             // Visual
             dropdownQuality.value = gameSettings.quality;
@@ -101,7 +98,7 @@ public class OptionsMenu : MonoBehaviour
             SetFullScreen(gameSettings.fullscreen);
             SetResolution(gameSettings.resolution);
         }
-        else if(JsonIsEmpty(jsonString))
+        else if(!File.Exists(filePathSetting))
         {
             dropdownQuality.value = gameSettings.quality = 0;
             resolutionsDropdown.value = gameSettings.resolution = 0;

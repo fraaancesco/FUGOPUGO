@@ -25,7 +25,7 @@ public class ShopManager : MonoBehaviour
         {
             cube.SetActive(false);
         }
-        Debug.Log(currentSkinIndex);
+  
         cubeSkins[currentSkinIndex].SetActive(true);
         SaveGame.setSkinSelected(currentSkinIndex);
     }
