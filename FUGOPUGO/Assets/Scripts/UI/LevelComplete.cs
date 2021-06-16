@@ -28,7 +28,7 @@ public class LevelComplete : MonoBehaviour
     {
         float scorePlayer = (float)canvas.GetComponent<ScorePlayer>().GetScorePlayer();
         newScore.GetComponent<Text>().text = Mathf.Round(scorePlayer).ToString();
-
+        
         string timeRemainPlayer = canvas.GetComponent<ScorePlayer>().GetRemainTime();
         timeRemain.GetComponent<Text>().text = timeRemainPlayer;
 
@@ -36,9 +36,9 @@ public class LevelComplete : MonoBehaviour
         coinsCollected.GetComponent<Text>().text = coinsCollectedOfLvl.ToString();
 
         // Set old score.
-        double oldScorePlayer = SaveGame.GetScoreLevel(SceneManager.GetActiveScene().buildIndex - 2);
+        float oldScorePlayer =(float) SaveGame.GetScoreLevel(SceneManager.GetActiveScene().buildIndex - 2);
        
-        oldScore.GetComponent<Text>().text = oldScorePlayer.ToString();
+        oldScore.GetComponent<Text>().text = Mathf.Round(oldScorePlayer).ToString();
 
         // Set final score.
         float finalScorePlayer = (float)canvas.GetComponent<ScorePlayer>().CalculateScore();

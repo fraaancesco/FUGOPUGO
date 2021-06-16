@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 public class GameManager : Singleton<GameManager>
 {
 
@@ -23,15 +24,21 @@ public class GameManager : Singleton<GameManager>
     public static PlayerData playerinfo = new PlayerData();
 
     private string nameToSearch;
-    public string filePathSetting = "Assets/Json/PlayerList.json";
+    public string filePathSetting;
 
     [SerializeField] InputField input; // Nickname 
     [SerializeField] GameObject level01, level02, level03;
     Button level01btn, level02btn, level03btn;
 
-    public ScoreManager scoreManager;
+    public ScoreManager scoreManager ;
     private void Awake()
     {
+        
+        filePathSetting = Path.Combine(Application.persistentDataPath, "PlayerList.json");
+        Debug.Log(filePathSetting);
+        
+        scoreManager.LoadScoreboard();
+       
         CoinManager = GameObject.Find("CoinManager");
         stopGame = false;
         if(SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex < 5)
@@ -51,7 +58,7 @@ public class GameManager : Singleton<GameManager>
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         levelPassed = SaveGame.GetLevelPassed();
-
+        
         if(SceneManager.GetActiveScene().buildIndex >= 2) { 
             CoinManager.GetComponent<CoinManager>().ResetCoins();
         }
@@ -105,13 +112,18 @@ public class GameManager : Singleton<GameManager>
         SaveGame.SaveLevel(sceneIndex);
         double finalScore = 0;
 
-        // Rank the player when finish all levels.
-        if (levelPassed == 3)
+        // Rank the player when finish level.
+        if (levelPassed >= 1)
         {
             for (int i = 0; i < 3; i++) { 
                 finalScore += SaveGame.GetScoreLevel(i);
+                
             }
-            scoreManager.AddScore(new Score(playerinfo.namePlayer,finalScore)); 
+            
+            Debug.Log("score finale" + finalScore);
+            
+            scoreManager.AddScore(new Score(playerinfo.namePlayer, finalScore)); 
+
             scoreManager.SaveScore();
         }
 
@@ -165,10 +177,19 @@ public class GameManager : Singleton<GameManager>
     {
 
         nameToSearch = input.text;
-        playerinfo = SaveData.FindPlayer(filePathSetting, nameToSearch);
-        if (playerinfo.namePlayer == null)
+        if (File.Exists(filePathSetting) is true)
         {
-           
+            playerinfo = SaveData.FindPlayer(filePathSetting, nameToSearch);
+            if (playerinfo.namePlayer == null)
+                SignUpPlayer();
+        }
+        else if(!File.Exists(filePathSetting))
+            SignUpPlayer();
+
+    }
+    //setup first time player
+    public void SignUpPlayer()
+    {
             playerinfo.namePlayer = nameToSearch;
             playerinfo.wallet = 0;
             for (int i = 0; i < 3; i++)
@@ -181,10 +202,8 @@ public class GameManager : Singleton<GameManager>
 
             SaveData.AddPlayerData(playerinfo);
             SaveData.Save(filePathSetting, SaveData.playerContainer);
-        }
-       
-    }
 
+    }
     public void SetFalseUserUI()
     {
         score.SetActive(false);
