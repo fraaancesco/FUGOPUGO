@@ -55,10 +55,11 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        Time.timeScale = 1;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         levelPassed = SaveGame.GetLevelPassed();
         
-        if(SceneManager.GetActiveScene().buildIndex >= 2) { 
+        if (SceneManager.GetActiveScene().buildIndex >= 2 && SceneManager.GetActiveScene().name != "Credits") { 
             CoinManager.GetComponent<CoinManager>().ResetCoins();
         }
     }
