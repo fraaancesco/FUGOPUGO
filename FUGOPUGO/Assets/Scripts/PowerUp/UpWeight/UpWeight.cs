@@ -24,7 +24,6 @@ public class UpWeight : PowerUp
         rigidBodyPlayer = GameObject.Find("Player").GetComponent<Rigidbody>();
         weightPlayer = rigidBodyPlayer.drag;
 
-        timeEffectPowerUp = 0;
         durationPowerUp = 10f;
 
         upWeightPlayer = 10;
@@ -35,26 +34,37 @@ public class UpWeight : PowerUp
     {
         if(other.gameObject.tag == "Player")
         {
-            script.ActiveCoroutineUpWeight(this.gameObject);
+            if(!script.upWeightIsActive)
+            {
+                script.ActiveCoroutineUpWeight(this.gameObject, durationPowerUp);
+            }
+            else
+            {
+                script.timeUpWeight += durationPowerUp;
+                this.transform.parent.gameObject.SetActive(false);
+                Destroy(this.transform.parent.gameObject);
+            }
             SoundManager.Instance.PowerUps("UpWeight");
         }
     }
 
     public override IEnumerator InvokePowerUp()
     {
-        timeEffectPowerUp = durationPowerUp;
+        script.timeUpWeight = durationPowerUp;
+        script.upWeightIsActive = true;
         UpWeightCanvas.SetActive(true);
-        while (timeEffectPowerUp > 0f)
+        while (script.timeUpWeight > 0f)
         {
             rigidBodyPlayer.drag = upWeightPlayer;
-            if (timeEffectPowerUp > 0)
+            if (script.timeUpWeight > 0)
             {
-                timeEffectPowerUp -= Time.deltaTime;
-                textPowerUp.text = Mathf.Round(timeEffectPowerUp).ToString();
+                script.timeUpWeight -= Time.deltaTime;
+                textPowerUp.text = Mathf.Round(script.timeUpWeight).ToString();
             }
             yield return 0;
             rigidBodyPlayer.drag = weightPlayer;
         }
+        script.upWeightIsActive = false;
         UpWeightCanvas.SetActive(false);
     }
 }

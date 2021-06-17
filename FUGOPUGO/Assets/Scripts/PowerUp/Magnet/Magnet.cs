@@ -35,7 +35,6 @@ public class Magnet : PowerUp
             targetCoinDetector.SetActive(false);
         }
 
-        timeEffectPowerUp = 0;
         durationPowerUp = 20f;
     }
 
@@ -44,26 +43,37 @@ public class Magnet : PowerUp
     {
         if(other.gameObject.tag == "Player")
         {
-            script.ActiveCoroutineMagnet(gameObject);
+            if (!script.magnetIsActive) 
+            {
+                script.ActiveCoroutineMagnet(gameObject, durationPowerUp);
+            }
+            else
+            {
+                script.timeMagnet += durationPowerUp;
+                this.transform.parent.gameObject.SetActive(false);
+                Destroy(this.transform.parent.gameObject);
+            }
             SoundManager.Instance.PowerUps("Magnet");
         }
     }
     
     public override IEnumerator InvokePowerUp()
     {
-        timeEffectPowerUp = durationPowerUp;
+        script.timeMagnet = durationPowerUp;
+        script.magnetIsActive = true;
         MagnetCanvas.SetActive(true);
-        while (timeEffectPowerUp > 0f)
+        while (script.timeMagnet > 0f)
         {
             targetCoinDetector.SetActive(true);
-            if (timeEffectPowerUp > 0)
+            if (script.timeMagnet > 0)
             {
-                timeEffectPowerUp -= Time.deltaTime;
-                textPowerUp.text = Mathf.Round(timeEffectPowerUp).ToString();
+                script.timeMagnet -= Time.deltaTime;
+                textPowerUp.text = Mathf.Round(script.timeMagnet).ToString();
             }
             yield return 0;
             targetCoinDetector.SetActive(false);
         }
+        script.magnetIsActive = false;
         MagnetCanvas.SetActive(false);
     }
 }

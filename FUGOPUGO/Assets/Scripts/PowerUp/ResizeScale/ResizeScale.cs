@@ -29,7 +29,6 @@ public class ResizeScale : PowerUp
         scalePlayer = targetPlayer.transform.localScale;
         speedResizePlayer = speedPlayer * 2;
 
-        timeEffectPowerUp = 0;
         durationPowerUp = 20;
     }
 
@@ -38,31 +37,41 @@ public class ResizeScale : PowerUp
     {
         if(other.gameObject.tag == "Player")
         {
-            script.ActiveCoroutineResizeScale(gameObject);
+            if (!script.resizeScaleIsActive)
+            {
+                script.ActiveCoroutineResizeScale(gameObject, durationPowerUp);
+
+            }
+            else
+            {
+                script.timeResizeScale += durationPowerUp;
+                this.transform.parent.gameObject.SetActive(false);
+                Destroy(this.transform.parent.gameObject);
+            }
             SoundManager.Instance.PowerUps("ResizeScale");
         }
     }
 
     public override IEnumerator InvokePowerUp()
     {
-        timeEffectPowerUp = durationPowerUp;
-
+        script.timeResizeScale = durationPowerUp;
+        script.resizeScaleIsActive = true;
         ResizeScaleCanvas.SetActive(true);
-        while (timeEffectPowerUp > 0f)
+        while (script.timeResizeScale > 0f)
         {
             targetPlayer.transform.localScale = scaleResizePlayer;
             targetPlayer.GetComponent<PlayerMovement>().ZForce = speedResizePlayer;
 
-            if (timeEffectPowerUp > 0)
+            if (script.timeResizeScale > 0)
             {
-                timeEffectPowerUp -= Time.deltaTime;
-                textPowerUp.text = Mathf.Round(timeEffectPowerUp).ToString();
+                script.timeResizeScale -= Time.deltaTime;
+                textPowerUp.text = Mathf.Round(script.timeResizeScale).ToString();
             }
             yield return 0;
             targetPlayer.transform.localScale = scalePlayer;
             targetPlayer.GetComponent<PlayerMovement>().ZForce = speedPlayer;
         }
         ResizeScaleCanvas.SetActive(false);
-
+        script.resizeScaleIsActive = false;
     }
 }

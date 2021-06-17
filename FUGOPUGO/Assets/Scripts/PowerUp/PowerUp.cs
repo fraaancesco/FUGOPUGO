@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class PowerUp : MonoBehaviour
 {
-    [SerializeField] protected float timeEffectPowerUp;
     [SerializeField] protected GameObject targetPlayer;
     [SerializeField] protected GameObject targetPowerUpCoroutine;
     [SerializeField] protected PowerUpCoroutine script;
     [SerializeField] protected Text textPowerUp;
-
     [SerializeField] protected float durationPowerUp;
     private void Start()
     {
@@ -28,7 +26,6 @@ public class PowerUp : MonoBehaviour
             targetPowerUpCoroutine.AddComponent<PowerUpCoroutine>();
             script = targetPowerUpCoroutine.GetComponent<PowerUpCoroutine>();
         }
-
         OnStart();
     }
 

@@ -239,6 +239,18 @@ public class GameManager : Singleton<GameManager>
                 level02btn.interactable = true;
                 level03btn.interactable = true;
                 break;
+
+            case 4:
+                level03.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Text/Level3") as Sprite;
+                level02.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Text/Level2") as Sprite;
+                level01.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Text/Level1") as Sprite;
+                level01btn.interactable = true;
+                level02btn.interactable = true;
+                level03btn.interactable = true;
+                break;
+
+            default:
+                break;
         }
     }
 

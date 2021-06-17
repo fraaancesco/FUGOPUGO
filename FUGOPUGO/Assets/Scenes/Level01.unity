@@ -75439,6 +75439,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPooler: {fileID: 0}
+  magnetIsActive: 0
+  resizeScaleIsActive: 0
+  upWeightIsActive: 0
+  timeMagnet: 0
+  timeResizeScale: 0
+  timeUpWeight: 0
 --- !u!4 &1906632322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8921620064366754141, guid: 279a60ab765573748bc131f7e6fd496d,

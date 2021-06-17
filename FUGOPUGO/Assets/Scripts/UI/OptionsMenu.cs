@@ -99,15 +99,22 @@ public class OptionsMenu : MonoBehaviour
         }
         else if(!File.Exists(filePathSetting))
         {
-            dropdownQuality.value = gameSettings.quality = 0;
-            resolutionsDropdown.value = gameSettings.resolution = 0;
-            tooglefullscreen.isOn = gameSettings.fullscreen = false;
-            sliderVolume.value = gameSettings.volume = 1.0f;
+            gameSettings.quality = 0;
+            gameSettings.resolution = 0;
+            gameSettings.fullscreen = false;
+            gameSettings.volume = 1.0f;
             SetVolume();
             SetQuality(gameSettings.quality);
             SetFullScreen(gameSettings.fullscreen);
             SetResolution(gameSettings.resolution);
             SaveSetting();
+
+            dropdownQuality.value = 0;
+            resolutionsDropdown.value = 0;
+            tooglefullscreen.isOn = false;
+            sliderVolume.value = 1.0f;
+
+            
         }
     }
 
