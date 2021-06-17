@@ -11,8 +11,8 @@ public class ScoreUI : MonoBehaviour
         scoreManager.LoadScoreboard();
         if (scoreManager.getScoreData().scores.Count != 0)
         {
-            var scores = scoreManager.GetHighScores().ToArray(); //ordino gli scores
-            for (int i = 0; i < scores.Length; i++)  //per tutti uso scores.Length
+            var scores = scoreManager.GetHighScores().ToArray(); // Order the scores
+            for (int i = 0; i < scores.Length; i++)
             {
                 if (scores[i].name != ""  && i<10 ) 
                 {

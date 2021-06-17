@@ -130,6 +130,9 @@ public class PlayerMovement : MonoBehaviour
         if(rb.position.y < -4)
         {
             GameManager.GetComponent<GameManager>().EndGame();
+        }else if(rb.position.y > 60)
+        {
+            GameManager.GetComponent<GameManager>().EndGame();
         }
     }
 }

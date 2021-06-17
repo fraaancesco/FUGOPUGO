@@ -46,7 +46,7 @@ public class Tutorial : MonoBehaviour
 
 
         DialogProgressBar = new string[] { "What's up bro?", "I'll keep you company in the game!!",
-            "lol but i think.. ","i've made a mistake..", "this is not my game", "good luck bro" };
+            "lol but i think.. ","i've made a mistake..", "this is not my game", "good luck" };
 
 
         IntroLevel.SetActive(true);
@@ -272,8 +272,10 @@ public class Tutorial : MonoBehaviour
         TextTutorial.SetActive(false);
 
         // Decrement progressLevel (4/4)
+        
         distanceToEnd = distanceToEnd - 25;
         ProgressLevel.GetComponent<ProgressLevel>().IncrementProgressLevel(distanceToEnd);
+        yield return new WaitForSeconds(1f);
         tutorialIsActive = false;
 
 

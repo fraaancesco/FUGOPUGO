@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Manager\CoinManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameSetting.cs" />
+    <Compile Include="Assets\Scripts\Manager\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\Manager\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Rect\Rect.cs" />
@@ -105,7 +106,6 @@
     <Compile Include="Assets\Scripts\UI\ProgressLevel\ProgressLevel.cs" />
     <Compile Include="Assets\Scripts\UI\Score\RowUI.cs" />
     <Compile Include="Assets\Scripts\UI\Score\ScoreData.cs" />
-    <Compile Include="Assets\Scripts\UI\Score\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\UI\Score\ScorePlayer.cs" />
     <Compile Include="Assets\Scripts\UI\Score\ScoreUI.cs" />
     <Reference Include="UnityEngine">
