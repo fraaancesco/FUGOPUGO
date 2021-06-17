@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameSetting.cs" />
     <Compile Include="Assets\Scripts\Manager\ScoreManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\ShopManager.cs" />
     <Compile Include="Assets\Scripts\Manager\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Obstacle\Rect\Rect.cs" />
@@ -100,7 +101,6 @@
     <Compile Include="Assets\Scripts\UI\MarsCoin\MarsCoin.cs" />
     <Compile Include="Assets\Scripts\UI\MenuPause\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MenuShop\RotateSkin.cs" />
-    <Compile Include="Assets\Scripts\UI\MenuShop\ShopManager.cs" />
     <Compile Include="Assets\Scripts\UI\MenuSound\MenuSoundButton.cs" />
     <Compile Include="Assets\Scripts\UI\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\UI\ProgressLevel\ProgressLevel.cs" />

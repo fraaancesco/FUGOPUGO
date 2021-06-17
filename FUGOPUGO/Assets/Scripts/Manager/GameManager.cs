@@ -185,7 +185,7 @@ public class GameManager : Singleton<GameManager>
             SignUpPlayer();
 
     }
-    //setup first time player
+    // Setup first time player
     public void SignUpPlayer()
     {
             playerinfo.namePlayer = nameToSearch;
