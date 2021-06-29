@@ -165,11 +165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8825d7530b2bbc43895fa5c2e2d3970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartDelay: 2
   completeLevelUI: {fileID: 0}
-  scoreText: {fileID: 0}
+  canvas: {fileID: 0}
   deathUI: {fileID: 0}
-  coinManager: {fileID: 0}
+  CoinManager: {fileID: 0}
+  marscoin: {fileID: 0}
+  score: {fileID: 0}
+  progressLevelBar: {fileID: 0}
+  timeToFinish: {fileID: 0}
+  powerup: {fileID: 0}
+  gameHasEnded: 0
+  restartDelay: 2
+  stopGame: 0
   filePathSetting: Assets/Json/PlayerList.json
   input: {fileID: 0}
   level01: {fileID: 0}
@@ -606,7 +613,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345149697}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 86c47bc2090ec494da0913ecf8ea592a, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 14d402c1fc49f1542ab0018c974a2e86, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1484487384}
