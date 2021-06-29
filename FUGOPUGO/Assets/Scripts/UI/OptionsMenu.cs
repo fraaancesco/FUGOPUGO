@@ -103,13 +103,13 @@ public class OptionsMenu : MonoBehaviour
         {
             gameSettings.quality = 0;
             gameSettings.resolution = resolutionDefault;
-            gameSettings.fullscreen = true;
+            gameSettings.fullscreen = false;
             gameSettings.volume = 1.0f;
             //UI
             
             dropdownQuality.value = 0;
             resolutionsDropdown.value = resolutionDefault;
-            tooglefullscreen.isOn = true;
+            tooglefullscreen.isOn = false;
             sliderVolume.value = 1.0f;
 
             SetVolume();
