@@ -17,7 +17,7 @@ public class OptionsMenu : MonoBehaviour
     private void Awake()
     {
          
-         gameSettings = new GameSettings();
+        gameSettings = new GameSettings();
         resolutions = Screen.resolutions;
         resolutionsDropdown.ClearOptions();
 

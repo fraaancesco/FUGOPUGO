@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.GetComponent<GameManager>().gameHasEnded && !GameManager.GetComponent<GameManager>().stopGame) 
+        if (Input.GetKeyDown(InputManager.Instance.controls["pause"]) && !GameManager.GetComponent<GameManager>().gameHasEnded && !GameManager.GetComponent<GameManager>().stopGame) 
         {
             isPaused = !isPaused;
         }
