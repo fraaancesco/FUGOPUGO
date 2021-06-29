@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -13,7 +13,8 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Toggle tooglefullscreen;
     [SerializeField] Dropdown dropdownQuality;
     private GameSettings gameSettings;
-    string filePathSetting; 
+    string filePathSetting;
+    private int resolutionDefault;
     private void Awake()
     {
          
@@ -34,6 +35,7 @@ public class OptionsMenu : MonoBehaviour
             }
         }
         resolutionsDropdown.AddOptions(options);
+        resolutionDefault = currentResolutionIndex;
         resolutionsDropdown.value = currentResolutionIndex;
         resolutionsDropdown.RefreshShownValue();
     }
@@ -100,20 +102,22 @@ public class OptionsMenu : MonoBehaviour
         else if(!File.Exists(filePathSetting))
         {
             gameSettings.quality = 0;
-            gameSettings.resolution = 0;
-            gameSettings.fullscreen = false;
+            gameSettings.resolution = resolutionDefault;
+            gameSettings.fullscreen = true;
             gameSettings.volume = 1.0f;
+            //UI
+            
+            dropdownQuality.value = 0;
+            resolutionsDropdown.value = resolutionDefault;
+            tooglefullscreen.isOn = true;
+            sliderVolume.value = 1.0f;
+
             SetVolume();
             SetQuality(gameSettings.quality);
             SetFullScreen(gameSettings.fullscreen);
             SetResolution(gameSettings.resolution);
             SaveSetting();
-
-            dropdownQuality.value = 0;
-            resolutionsDropdown.value = 0;
-            tooglefullscreen.isOn = false;
-            sliderVolume.value = 1.0f;
-
+            
             
         }
     }
